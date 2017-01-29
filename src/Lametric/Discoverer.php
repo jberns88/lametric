@@ -24,9 +24,9 @@ class Discoverer {
      * @var array 
      */
     protected $defaults = [
-        'attempts' => 1,
+        'attempts' => 5,
         'urn' => 'urn:schemas-upnp-org:device:LaMetric:1',
-        'duration' => 1,
+        'duration' => 2,
         'api_keys' => []
     ];
 
@@ -51,9 +51,9 @@ class Discoverer {
             $client->search($options['urn'], $options['duration'])->then(null, null, function ($rawData) use($lametrics) {
 
                 $data = $this->decodeSSDPResourceData($rawData);
-               
+
                 $description = $this->transceiver->getSSDPDescription($data['location']);
-             
+
                 $key = $this->getApiKey((string) $description->device->serialNumber);
 
                 $lametrics->add(new Lametric((string) $description->URLBase, $key, $this->transceiver));

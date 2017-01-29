@@ -57,7 +57,7 @@ class LametricTransceiver {
      */
     protected function createLametricRequest(Lametric $lametric, string $method, string $url) {
         $address = $lametric->getAddress();
-        $address = preg_replace('/http(s)?\:\/\//', '', $address);
+        $address = preg_replace('/^http(s)?\:\/\//', '', $address);
 
         $address = 'http://' . $address;
 
