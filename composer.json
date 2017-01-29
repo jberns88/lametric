@@ -1,0 +1,17 @@
+{
+    "name": "jberns/lametric",
+    "description": "PHP Lametric notifications",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "react/react": "^0.4.2",
+        "clue/ssdp-react": "dev-master",
+        "guzzlehttp/guzzle": "^6.2",
+        "nikic/fast-route": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jberns\\Lametric\\": "src/Lametric"
+        }
+    }
+}
